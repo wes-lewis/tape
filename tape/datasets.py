@@ -30,7 +30,7 @@ def dataset_factory(data_file: Union[str, Path], *args, **kwargs) -> Dataset:
         return JSONDataset(data_file, *args, **kwargs)
     elif data_file.is_dir():
         return NPZDataset(data_file, *args, **kwargs)
-    elif data_file.suffix == '.csv'
+    elif data_file.suffix == '.csv':
         return CSVDataset(data_file, *args, **kwargs)
     else:
         raise ValueError(f"Unrecognized datafile type {data_file.suffix}")
