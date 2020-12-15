@@ -73,7 +73,7 @@ class CSVDataset(Dataset):
 
         # if in_memory:
         #cache = list(SeqIO.parse(str(data_file), 'fasta'))
-        with data_file.open() as f: cache = list(csv.reader(fd, delimiter=",", quotechar='"'))[1:]
+        with data_file.open() as f: cache = list(csv.reader(f, delimiter=",", quotechar='"'))[1:]
         num_examples = len(cache)
         self._cache = cache
         # else:
