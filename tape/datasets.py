@@ -108,7 +108,7 @@ class CSVDataset(Dataset):
             # if self._in_memory:
                 # self._cache[index] = record
 
-        item = {'id': record.id,
+        item = {'id': record[0],
                 'primary': str(record[1]),
                 'protein_length': len(record[1])}
         return item
