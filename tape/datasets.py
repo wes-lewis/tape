@@ -73,7 +73,7 @@ class CSVDataset(Dataset):
 
         # if in_memory:
         #cache = list(SeqIO.parse(str(data_file), 'fasta'))
-        with data_file.open() as f: cache = list(csv.reader(f, delimiter=",", quotechar='"'))[1:]
+        with data_file.open() as f: cache = list(csv.reader(f, delimiter=",", quotechar='"'))[0:]
         num_examples = len(cache)
         self._cache = cache
         # else:
@@ -109,8 +109,8 @@ class CSVDataset(Dataset):
                 # self._cache[index] = record
 
         item = {'id': record[0],
-                'primary': str(record[1]),
-                'protein_length': len(record[1])}
+                'primary': str(record[0]),
+                'protein_length': len(record[0])}
         return item
 
 
